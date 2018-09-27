@@ -35,6 +35,7 @@ class AddViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         let cartName = nameField.text
         let typeFood = typeField.text
+
         
         // Checks for empty fields
         if((cartName?.isEmpty)! || (typeFood?.isEmpty)!)
@@ -47,6 +48,7 @@ class AddViewController: UIViewController {
         // Get Current Coordinate
         var currentLocation: CLLocation!
         currentLocation = locationManager.location
+        print("Printing current coordinates")
         let longitude = "\(currentLocation.coordinate.longitude)"
         let latitude = "\(currentLocation.coordinate.latitude)"
         
@@ -63,7 +65,7 @@ class AddViewController: UIViewController {
         
         refFood.child(key!).setValue(food)
     }
-
+    
     // Function that displays an alert message to the user
     func displayAlertMessage(myMessage: String) {
         let myAlert = UIAlertController(title: "Alert", message: myMessage, preferredStyle: UIAlertControllerStyle.alert)
