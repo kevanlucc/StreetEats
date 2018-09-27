@@ -22,21 +22,28 @@ class AddViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        latitudeField.isUserInteractionEnabled = false
+        longitudeField.isUserInteractionEnabled = false
 
         // Do any additional setup after loading the view.
         refFood = Database.database().reference().child("Food");
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func getCurrentCoordinate(_ sender: UIButton) {
+        var currentLocation: CLLocation!
+        currentLocation = locationManager.location
+        let latitude = "\(currentLocation.coordinate.latitude)"
+        let longitude = "\(currentLocation.coordinate.longitude)"
+        
+        latitudeField.text = latitude
+        longitudeField.text = longitude
     }
     
     @IBAction func addButtonTapped(_ sender: Any) {
         let cartName = nameField.text
         let typeFood = typeField.text
 
-        
         // Checks for empty fields
         if((cartName?.isEmpty)! || (typeFood?.isEmpty)!)
         {
@@ -48,21 +55,27 @@ class AddViewController: UIViewController {
         // Get Current Coordinate
         var currentLocation: CLLocation!
         currentLocation = locationManager.location
-        print("Printing current coordinates")
+        
         let longitude = "\(currentLocation.coordinate.longitude)"
         let latitude = "\(currentLocation.coordinate.latitude)"
+        let date = Date()
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
         
         // Add the following data to Firebase Database
         let key = refFood.childByAutoId().key
         
         let food = [
-            "id": key,
-            "cartName": cartName,
-            "typeFood": typeFood,
+            "id": key as Any,
+            "cartName": cartName as Any,
+            "typeFood": typeFood as Any,
             "latitude": latitude,
-            "longitude": longitude
-        ]
-        
+            "longitude": longitude,
+            "month": components.month as Any,
+            "day": components.day as Any,
+            "hour": components.hour as Any,
+            "minutes": components.minute as Any,
+            ] as [String : Any]
         refFood.child(key!).setValue(food)
     }
     
@@ -74,5 +87,10 @@ class AddViewController: UIViewController {
         
         myAlert.addAction(okAction);
         self.present(myAlert, animated: true, completion: nil)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
