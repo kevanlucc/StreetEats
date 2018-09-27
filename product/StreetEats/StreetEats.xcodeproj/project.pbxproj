@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7621A2DB215C29BC0093B596 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7621A2DA215C29BC0093B596 /* AddViewController.swift */; };
+		76AA2B51215C0D4300FCBD8A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 76AA2B50215C0D4300FCBD8A /* GoogleService-Info.plist */; };
 		76D231EB215C06F600067E18 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D231EA215C06F600067E18 /* AppDelegate.swift */; };
 		76D231ED215C06F600067E18 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D231EC215C06F600067E18 /* ViewController.swift */; };
 		76D231F0215C06F600067E18 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D231EE215C06F600067E18 /* Main.storyboard */; };
 		76D231F2215C06F600067E18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76D231F1215C06F600067E18 /* Assets.xcassets */; };
 		76D231F5215C06F600067E18 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76D231F3215C06F600067E18 /* LaunchScreen.storyboard */; };
 		76D23200215C06F600067E18 /* StreetEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D231FF215C06F600067E18 /* StreetEatsTests.swift */; };
+		8612DEFC76D8A7DFBF70291C /* Pods_StreetEatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3AED285AA566926F865ED43 /* Pods_StreetEatsTests.framework */; };
+		E7D46E1CD4711DDB74D89D5A /* Pods_StreetEats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7631CC5F9DDBBEA6764F339 /* Pods_StreetEats.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +30,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		584BCBEDE9B51C245926CD92 /* Pods-StreetEatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.release.xcconfig"; sourceTree = "<group>"; };
+		706069CF3D5BB447CB7D02F2 /* Pods-StreetEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.debug.xcconfig"; sourceTree = "<group>"; };
+		7621A2DA215C29BC0093B596 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		76AA2B50215C0D4300FCBD8A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		76D231E7215C06F500067E18 /* StreetEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreetEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D231EA215C06F600067E18 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76D231EC215C06F600067E18 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +44,10 @@
 		76D231FB215C06F600067E18 /* StreetEatsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StreetEatsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		76D231FF215C06F600067E18 /* StreetEatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetEatsTests.swift; sourceTree = "<group>"; };
 		76D23201215C06F600067E18 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		79C070CC2FABE3D3C660C558 /* Pods-StreetEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.release.xcconfig"; sourceTree = "<group>"; };
+		A7631CC5F9DDBBEA6764F339 /* Pods_StreetEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreetEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3AED285AA566926F865ED43 /* Pods_StreetEatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreetEatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC607D6A48183445DFF33CBB /* Pods-StreetEatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7D46E1CD4711DDB74D89D5A /* Pods_StreetEats.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +63,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8612DEFC76D8A7DFBF70291C /* Pods_StreetEatsTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		45825F1A969319C709834308 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7631CC5F9DDBBEA6764F339 /* Pods_StreetEats.framework */,
+				D3AED285AA566926F865ED43 /* Pods_StreetEatsTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7485FA8ED00AA80925C76D52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				706069CF3D5BB447CB7D02F2 /* Pods-StreetEats.debug.xcconfig */,
+				79C070CC2FABE3D3C660C558 /* Pods-StreetEats.release.xcconfig */,
+				DC607D6A48183445DFF33CBB /* Pods-StreetEatsTests.debug.xcconfig */,
+				584BCBEDE9B51C245926CD92 /* Pods-StreetEatsTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		76D231DE215C06F500067E18 = {
 			isa = PBXGroup;
 			children = (
 				76D231E9215C06F500067E18 /* StreetEats */,
 				76D231FE215C06F600067E18 /* StreetEatsTests */,
 				76D231E8215C06F500067E18 /* Products */,
+				7485FA8ED00AA80925C76D52 /* Pods */,
+				45825F1A969319C709834308 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,7 +118,9 @@
 				76D231EE215C06F600067E18 /* Main.storyboard */,
 				76D231F1215C06F600067E18 /* Assets.xcassets */,
 				76D231F3215C06F600067E18 /* LaunchScreen.storyboard */,
+				76AA2B50215C0D4300FCBD8A /* GoogleService-Info.plist */,
 				76D231F6215C06F600067E18 /* Info.plist */,
+				7621A2DA215C29BC0093B596 /* AddViewController.swift */,
 			);
 			path = StreetEats;
 			sourceTree = "<group>";
@@ -103,9 +141,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D23204215C06F600067E18 /* Build configuration list for PBXNativeTarget "StreetEats" */;
 			buildPhases = (
+				F64742C9C7E3FF93131A793E /* [CP] Check Pods Manifest.lock */,
 				76D231E3215C06F500067E18 /* Sources */,
 				76D231E4215C06F500067E18 /* Frameworks */,
 				76D231E5215C06F500067E18 /* Resources */,
+				42AF7832607DA2BB9AC042D5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -120,6 +160,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 76D23207215C06F600067E18 /* Build configuration list for PBXNativeTarget "StreetEatsTests" */;
 			buildPhases = (
+				6995DC1A3ECEA6DAAD3E451D /* [CP] Check Pods Manifest.lock */,
 				76D231F7215C06F600067E18 /* Sources */,
 				76D231F8215C06F600067E18 /* Frameworks */,
 				76D231F9215C06F600067E18 /* Resources */,
@@ -178,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76D231F5215C06F600067E18 /* LaunchScreen.storyboard in Resources */,
+				76AA2B51215C0D4300FCBD8A /* GoogleService-Info.plist in Resources */,
 				76D231F2215C06F600067E18 /* Assets.xcassets in Resources */,
 				76D231F0215C06F600067E18 /* Main.storyboard in Resources */,
 			);
@@ -192,6 +234,67 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		42AF7832607DA2BB9AC042D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6995DC1A3ECEA6DAAD3E451D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StreetEatsTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F64742C9C7E3FF93131A793E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StreetEats-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		76D231E3215C06F500067E18 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -199,6 +302,7 @@
 			files = (
 				76D231ED215C06F600067E18 /* ViewController.swift in Sources */,
 				76D231EB215C06F600067E18 /* AppDelegate.swift in Sources */,
+				7621A2DB215C29BC0093B596 /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,6 +460,7 @@
 		};
 		76D23205215C06F600067E18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 706069CF3D5BB447CB7D02F2 /* Pods-StreetEats.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -373,6 +478,7 @@
 		};
 		76D23206215C06F600067E18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79C070CC2FABE3D3C660C558 /* Pods-StreetEats.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -390,6 +496,7 @@
 		};
 		76D23208215C06F600067E18 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC607D6A48183445DFF33CBB /* Pods-StreetEatsTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -410,6 +517,7 @@
 		};
 		76D23209215C06F600067E18 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 584BCBEDE9B51C245926CD92 /* Pods-StreetEatsTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
