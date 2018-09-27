@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		484B6A429FA365ACD10CA045 /* Pods_StreetEats.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F753289AA1FBBA379B94DE1 /* Pods_StreetEats.framework */; };
 		76587804787BB9B7467DBED5 /* Pods_StreetEatsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 170C8CC604D31E743D59F7D1 /* Pods_StreetEatsTests.framework */; };
+		766799D5215C5C8800702AA9 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 766799D4215C5C8800702AA9 /* AddViewController.swift */; };
 		76861EEC215C515800EAB59B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76861EEB215C515800EAB59B /* AppDelegate.swift */; };
 		76861EEE215C515800EAB59B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76861EED215C515800EAB59B /* ViewController.swift */; };
 		76861EF1215C515800EAB59B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76861EEF215C515800EAB59B /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 		170C8CC604D31E743D59F7D1 /* Pods_StreetEatsTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreetEatsTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1F753289AA1FBBA379B94DE1 /* Pods_StreetEats.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StreetEats.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FAD0CD78E2F6B1DAD7D40E7 /* Pods-StreetEatsTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.release.xcconfig"; sourceTree = "<group>"; };
+		766799D4215C5C8800702AA9 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		76861EE8215C515800EAB59B /* StreetEats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StreetEats.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76861EEB215C515800EAB59B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76861EED215C515800EAB59B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				76861EF4215C515900EAB59B /* LaunchScreen.storyboard */,
 				76E64136215C563B00C6E9A1 /* GoogleService-Info.plist */,
 				76861EF7215C515900EAB59B /* Info.plist */,
+				766799D4215C5C8800702AA9 /* AddViewController.swift */,
 			);
 			path = StreetEats;
 			sourceTree = "<group>";
@@ -237,15 +240,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StreetEats-checkManifestLockResult.txt",
 			);
@@ -259,15 +258,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-StreetEatsTests-checkManifestLockResult.txt",
 			);
@@ -281,8 +276,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -290,8 +283,6 @@
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
@@ -311,6 +302,7 @@
 			files = (
 				76861EEE215C515800EAB59B /* ViewController.swift in Sources */,
 				76861EEC215C515800EAB59B /* AppDelegate.swift in Sources */,
+				766799D5215C5C8800702AA9 /* AddViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
