@@ -27,13 +27,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.delegate = self
         //createAnnotation(locations: annoLocation)
         
-        // grabbing data and printing to console
+        // grabbing data
         ref = Database.database().reference()
-        refHandle = ref.observe(DataEventType.value,
+        refHandle = ref.observe(.value,
                                 with: { (snapshot) in
                                     let dataDict = snapshot.value as! [String: AnyObject]
-                                    
-                                    print (dataDict)
+    })
+        ref.child("Food").observe(.childAdded, with: { (snapshot) in
+            print("printing snapshot.value")
+            let latitude = (snapshot.value as AnyObject!)!["latitude"] as! String
+            let longitude = (snapshot.value as AnyObject!)!["longitude"] as! String
+            let cartName = (snapshot.value as AnyObject!)!["cartName"] as! String!
+            let typeFood = (snapshot.value as AnyObject!)!["typeFood"] as! String!
+            
+            let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
+            
+            let annotations = MKPointAnnotation()
+            annotations.coordinate = locate
+            annotations.title = cartName
+            annotations.subtitle = typeFood
+            self.mapView.addAnnotation(annotations)
         })
         
     }
