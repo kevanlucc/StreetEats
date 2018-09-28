@@ -9,8 +9,8 @@
 import UIKit
 import MapKit
 import CoreLocation
-import FirebaseDatabase
 import Firebase
+import FirebaseDatabase
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -20,6 +20,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        mapView.userTrackingMode = .follow
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -29,16 +30,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         // grabbing data
         ref = Database.database().reference()
+        // Grabs data from the database hierarchy as a snapshot
         refHandle = ref.observe(.value,
                                 with: { (snapshot) in
                                     let dataDict = snapshot.value as! [String: AnyObject]
     })
+        // Referencing data inside the "Food" dictionary
         ref.child("Food").observe(.childAdded, with: { (snapshot) in
             print("printing snapshot.value")
-            let latitude = (snapshot.value as AnyObject!)!["latitude"] as! String
-            let longitude = (snapshot.value as AnyObject!)!["longitude"] as! String
-            let cartName = (snapshot.value as AnyObject!)!["cartName"] as! String!
-            let typeFood = (snapshot.value as AnyObject!)!["typeFood"] as! String!
+            let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
+            let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
+            let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
+            let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
             
             let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
             
@@ -51,8 +54,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     }
     
+    // function that zooms in to the user's location
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001))
+        let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
         self.mapView.setRegion(region, animated: true)
     }
     
@@ -64,7 +68,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         ]*/
     
     // Iterate through multiple location and mark points in the map
-    func createAnnotation(locations: [[String: Any]]) {
+   /* func createAnnotation(locations: [[String: Any]]) {
         for location in locations {
             let locate = CLLocationCoordinate2DMake(
                 location["latitude"] as! CLLocationDegrees,
@@ -76,7 +80,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotations.subtitle = location["Menu"] as? String
             mapView.addAnnotation(annotations)
         }
-    }
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
