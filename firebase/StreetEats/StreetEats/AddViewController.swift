@@ -40,7 +40,7 @@ class AddViewController: UIViewController {
         longitudeField.text = longitude
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
+    @IBAction func addButtonTapped(_ sender: UIButton) {
         let cartName = nameField.text
         let typeFood = typeField.text
 
@@ -79,6 +79,8 @@ class AddViewController: UIViewController {
         refFood.child(key!).setValue(food)
     }
     
+    @IBAction func cancelButtonTapped(_ sender: UIButton) {
+    }
     // Function that displays an alert message to the user
     func displayAlertMessage(myMessage: String) {
         let myAlert = UIAlertController(title: "Alert", message: myMessage, preferredStyle: UIAlertControllerStyle.alert)
