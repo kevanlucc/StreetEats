@@ -64,11 +64,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if annotation is MKUserLocation {
             return nil
         }
-        let annontationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customannotation")
-        annontationView.canShowCallout = true
-        annontationView.image = UIImage(named: "cart")
-        return annontationView 
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomerAnnotation")
+        annotationView.image = UIImage(named: "cart")
+        annotationView.canShowCallout = true
+        
+        let subtitleView = UILabel()
+        subtitleView.font = subtitleView.font.withSize(12)
+        subtitleView.numberOfLines = 0
+        subtitleView.text = annotation.subtitle!
+        annotationView.detailCalloutAccessoryView = subtitleView
+        return annotationView
     }
+    
     // function that zooms in to the user's location
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
