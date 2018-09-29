@@ -11,15 +11,19 @@ import MapKit
 import CoreLocation
 import FirebaseDatabase
 import Firebase
+import GoogleSignIn
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, GIDSignInUIDelegate {
     
     let locationManager = CLLocationManager()
     var ref: DatabaseReference!
     var refHandle: UInt!
+    
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupGoogleButton()
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -48,7 +52,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotations.subtitle = typeFood
             self.mapView.addAnnotation(annotations)
         })
+    }
+    
+    fileprivate func setupGoogleButton() {
+        // Add google signin
+        let googleButton = GIDSignInButton()
+        googleButton.frame = CGRect(x: 16, y: 116 + 66, width: view.frame.width - 32, height: 50)
+        view.addSubview(googleButton)
         
+        GIDSignIn.sharedInstance().uiDelegate = self as! GIDSignInUIDelegate
     }
     
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
