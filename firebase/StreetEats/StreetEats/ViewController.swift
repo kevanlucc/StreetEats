@@ -47,6 +47,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
             let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
             
+            // Draw out marker on map 
             let annotations = MKPointAnnotation()
             annotations.coordinate = locate
             annotations.title = cartName
