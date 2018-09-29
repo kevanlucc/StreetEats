@@ -16,7 +16,11 @@
 		76861EF3215C515900EAB59B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76861EF2215C515900EAB59B /* Assets.xcassets */; };
 		76861EF6215C515900EAB59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76861EF4215C515900EAB59B /* LaunchScreen.storyboard */; };
 		76861F01215C515900EAB59B /* StreetEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76861F00215C515900EAB59B /* StreetEatsTests.swift */; };
+<<<<<<< HEAD
 		A504EBB9215F2CA3007500FF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A504EBB8215F2CA3007500FF /* GoogleService-Info.plist */; };
+=======
+		A5778B81215ECD18000566EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5778B80215ECD18000566EF /* GoogleService-Info.plist */; };
+>>>>>>> e9d6bceea9650042a669c0cb608560f46e9354b0
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +49,11 @@
 		76861F00215C515900EAB59B /* StreetEatsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreetEatsTests.swift; sourceTree = "<group>"; };
 		76861F02215C515900EAB59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDFE175E70C85ED29B1B496 /* Pods-StreetEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.debug.xcconfig"; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		A504EBB8215F2CA3007500FF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+=======
+		A5778B80215ECD18000566EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+>>>>>>> e9d6bceea9650042a669c0cb608560f46e9354b0
 		BF840A96904ED8A10D87A975 /* Pods-StreetEatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA955B9AFAFBE09DD3AC5EBA /* Pods-StreetEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,7 +101,11 @@
 		76861EEA215C515800EAB59B /* StreetEats */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				A504EBB8215F2CA3007500FF /* GoogleService-Info.plist */,
+=======
+				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
+>>>>>>> e9d6bceea9650042a669c0cb608560f46e9354b0
 				76861EEB215C515800EAB59B /* AppDelegate.swift */,
 				76861EED215C515800EAB59B /* ViewController.swift */,
 				76861EEF215C515800EAB59B /* Main.storyboard */,
@@ -220,7 +232,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				76861EF6215C515900EAB59B /* LaunchScreen.storyboard in Resources */,
+<<<<<<< HEAD
 				A504EBB9215F2CA3007500FF /* GoogleService-Info.plist in Resources */,
+=======
+				A5778B81215ECD18000566EF /* GoogleService-Info.plist in Resources */,
+>>>>>>> e9d6bceea9650042a669c0cb608560f46e9354b0
 				76861EF3215C515900EAB59B /* Assets.xcassets in Resources */,
 				76861EF1215C515800EAB59B /* Main.storyboard in Resources */,
 			);
