@@ -44,6 +44,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
             let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
             let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
+            let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
+            let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
             
             let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
             
@@ -51,12 +53,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let annotations = MKPointAnnotation()
             annotations.coordinate = locate
             annotations.title = cartName
-            annotations.subtitle = typeFood
+            print(hours)
+            print(minutes)
+            annotations.subtitle = "\(typeFood) \n\(hours) \(minutes)"
             self.mapView.addAnnotation(annotations)
         })
         
     }
-    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation {
+            return nil
+        }
+        let annontationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "customannotation")
+        annontationView.canShowCallout = true
+        annontationView.image = UIImage(named: "cart")
+        return annontationView 
+    }
     // function that zooms in to the user's location
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
