@@ -8,6 +8,8 @@ target 'StreetEats' do
   # Pods for StreetEats
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'GoogleSignIn'
 
   target 'StreetEatsTests' do
     inherit! :search_paths
