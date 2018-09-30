@@ -125,18 +125,18 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oYl-Tm-lvV">
-                                <rect key="frame" x="66" y="505" width="48" height="30"/>
+                                <rect key="frame" x="20" y="60" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Cancel"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
                                     <action selector="cancelButtonTapped:" destination="qdn-tX-guE" eventType="touchUpInside" id="Zno-4z-UlV"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="ijw-1t-Xoe"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zhd-ML-ENm">
-                                <rect key="frame" x="222" y="505" width="55" height="30"/>
+                                <rect key="frame" x="313" y="56" width="37" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Confirm"/>
+                                <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="addButtonTapped:" destination="qdn-tX-guE" eventType="touchUpInside" id="R3B-UP-Zdw"/>
                                     <segue destination="BYZ-38-t0r" kind="presentation" id="0Q2-Jz-2xv"/>
@@ -181,13 +181,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="btc-jr-TY8">
-                                <rect key="frame" x="34" y="43" width="41" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GKw-xc-7Yl">
+                                <rect key="frame" x="17" y="42" width="48" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Home"/>
+                                <state key="normal" title="Back"/>
                                 <connections>
-                                    <action selector="cancelButtonTapped:" destination="qdn-tX-guE" eventType="touchUpInside" id="VhT-6r-9cg"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="yAA-ya-Unv"/>
+                                    <action selector="cancelButtonTapped:" destination="qdn-tX-guE" eventType="touchUpInside" id="4LN-72-yBx"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="FVQ-s5-B0B"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -201,6 +201,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="mDF-mh-k41"/>
+        <segue reference="0Q2-Jz-2xv"/>
     </inferredMetricsTieBreakers>
 </document>

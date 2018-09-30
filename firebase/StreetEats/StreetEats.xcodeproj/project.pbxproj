@@ -95,7 +95,6 @@
 		76861EEA215C515800EAB59B /* StreetEats */ = {
 			isa = PBXGroup;
 			children = (
-				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
 				76861EEB215C515800EAB59B /* AppDelegate.swift */,
 				76861EED215C515800EAB59B /* ViewController.swift */,
 				766799D4215C5C8800702AA9 /* AddViewController.swift */,
@@ -103,6 +102,7 @@
 				76861EEF215C515800EAB59B /* Main.storyboard */,
 				76861EF2215C515900EAB59B /* Assets.xcassets */,
 				76861EF4215C515900EAB59B /* LaunchScreen.storyboard */,
+				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
 				76861EF7215C515900EAB59B /* Info.plist */,
 			);
 			path = StreetEats;
