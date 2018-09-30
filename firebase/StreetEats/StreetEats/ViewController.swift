@@ -15,6 +15,8 @@ import Firebase
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     let locationManager = CLLocationManager()
+    var refFood: DatabaseReference?
+    var handler: DatabaseHandle?
     
     @IBOutlet weak var mapView: MKMapView!
     override func viewDidLoad() {
@@ -24,6 +26,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         locationManager.requestWhenInUseAuthorization()
         
         self.mapView.delegate = self
+        handler = refFood?.child("Food").observe(.value, with: { (snapshot) in
+            print(snapshot.children.allObjects)
+        })
         createAnnotation(locations: annoLocation)
         
     }
@@ -33,7 +38,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.setRegion(region, animated: true)
     }
     
-    // Annotate Multiple Location
     let annoLocation = [
         ["title": "Sisig Cart", "latitude": 37.7880, "longitude": -122.4075, "Menu": "Filipino food"],
         ["title": "Sisig Cart", "latitude": 37.7910, "longitude": -122.4085, "Menu": "Filipino food"],
