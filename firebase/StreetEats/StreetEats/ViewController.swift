@@ -39,7 +39,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     })
         // Referencing data inside the "Food" dictionary
         ref.child("Food").observe(.childAdded, with: { (snapshot) in
-            print("printing snapshot.value")
             let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
             let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
             let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
@@ -53,8 +52,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let annotations = MKPointAnnotation()
             annotations.coordinate = locate
             annotations.title = cartName
-            print(hours)
-            print(minutes)
             annotations.subtitle = "\(typeFood) \n\(hours) \(minutes)"
             self.mapView.addAnnotation(annotations)
         })

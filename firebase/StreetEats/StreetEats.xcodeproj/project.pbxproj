@@ -17,6 +17,7 @@
 		76861EF6215C515900EAB59B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76861EF4215C515900EAB59B /* LaunchScreen.storyboard */; };
 		76861F01215C515900EAB59B /* StreetEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76861F00215C515900EAB59B /* StreetEatsTests.swift */; };
 		A5778B81215ECD18000566EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5778B80215ECD18000566EF /* GoogleService-Info.plist */; };
+		A5931D4121604BD90023C532 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5931D4021604BD90023C532 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		76861F02215C515900EAB59B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7DDFE175E70C85ED29B1B496 /* Pods-StreetEats.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.debug.xcconfig"; sourceTree = "<group>"; };
 		A5778B80215ECD18000566EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A5931D4021604BD90023C532 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF840A96904ED8A10D87A975 /* Pods-StreetEatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EA955B9AFAFBE09DD3AC5EBA /* Pods-StreetEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -93,14 +95,15 @@
 		76861EEA215C515800EAB59B /* StreetEats */ = {
 			isa = PBXGroup;
 			children = (
-				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
 				76861EEB215C515800EAB59B /* AppDelegate.swift */,
 				76861EED215C515800EAB59B /* ViewController.swift */,
+				766799D4215C5C8800702AA9 /* AddViewController.swift */,
+				A5931D4021604BD90023C532 /* LoginViewController.swift */,
 				76861EEF215C515800EAB59B /* Main.storyboard */,
 				76861EF2215C515900EAB59B /* Assets.xcassets */,
 				76861EF4215C515900EAB59B /* LaunchScreen.storyboard */,
+				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
 				76861EF7215C515900EAB59B /* Info.plist */,
-				766799D4215C5C8800702AA9 /* AddViewController.swift */,
 			);
 			path = StreetEats;
 			sourceTree = "<group>";
@@ -146,6 +149,7 @@
 				76861EE5215C515800EAB59B /* Frameworks */,
 				76861EE6215C515800EAB59B /* Resources */,
 				F9823232E65B96C834648CD7 /* [CP] Embed Pods Frameworks */,
+				6DB6774DD9F0EDC069344258 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +257,28 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		6DB6774DD9F0EDC069344258 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7AA7EE5517260B893ED58C93 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -278,12 +304,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
@@ -300,6 +332,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5931D4121604BD90023C532 /* LoginViewController.swift in Sources */,
 				76861EEE215C515800EAB59B /* ViewController.swift in Sources */,
 				76861EEC215C515800EAB59B /* AppDelegate.swift in Sources */,
 				766799D5215C5C8800702AA9 /* AddViewController.swift in Sources */,
