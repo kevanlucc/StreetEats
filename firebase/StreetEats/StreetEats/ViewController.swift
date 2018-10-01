@@ -15,21 +15,28 @@ import GoogleSignIn
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    @IBOutlet weak var AddButtonOnLogin: UIButton!
     @IBOutlet weak var loginTitle: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     var ref: DatabaseReference!
     var refHandle: UInt!
-    @IBOutlet weak var mapView: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.userTrackingMode = .follow
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
+        //checks if user is logged in to Firebase
         if Auth.auth().currentUser != nil {
             loginTitle.setTitle("Logout", for: .normal)
+            AddButtonOnLogin.isHidden = false
         }
- 
+        else {
+            AddButtonOnLogin.isHidden = true
+        }
         self.mapView.delegate = self
         //createAnnotation(locations: annoLocation)
         
@@ -79,17 +86,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        // if user is logged in
         if Auth.auth().currentUser != nil {
             GIDSignIn.sharedInstance().signOut()
             do {
                 try Auth.auth().signOut()
                 loginTitle.setTitle("Login", for: .normal)
+                AddButtonOnLogin.isHidden = true
             }
             catch {
                 print(error)
             }
         } else {
             performSegue(withIdentifier: "loginPage", sender: nil)
+            
         }
     }
     
