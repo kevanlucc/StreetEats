@@ -14,29 +14,15 @@ class AddViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var latitudeField: UITextField!
-    @IBOutlet weak var longitudeField: UITextField!
+
     let locationManager = CLLocationManager()
     var refFood: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        latitudeField.isUserInteractionEnabled = false
-        longitudeField.isUserInteractionEnabled = false
 
         // Do any additional setup after loading the view.
         refFood = Database.database().reference().child("Food");
-    }
-    
-    @IBAction func getCurrentCoordinate(_ sender: UIButton) {
-        var currentLocation: CLLocation!
-        currentLocation = locationManager.location
-        let latitude = "\(currentLocation.coordinate.latitude)"
-        let longitude = "\(currentLocation.coordinate.longitude)"
-        
-        latitudeField.text = latitude
-        longitudeField.text = longitude
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -93,6 +79,10 @@ class AddViewController: UIViewController {
         
         myAlert.addAction(okAction);
         self.present(myAlert, animated: true, completion: nil)
+    }
+    @IBAction func HideKeyboard(_ sender: UITapGestureRecognizer) {
+        nameField.resignFirstResponder()
+        typeField.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {
