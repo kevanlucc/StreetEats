@@ -16,9 +16,17 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         super.viewDidLoad()
         
         setupGoogleButton()
-        
     }
     
+    @IBAction func logoutButton(_ sender: UIButton) {
+        GIDSignIn.sharedInstance().signOut()
+        do {
+            try Auth.auth().signOut()
+        }
+        catch {
+            print(error)
+        }
+    }
     fileprivate func setupGoogleButton() {
         // Add google signin
         let googleButton = GIDSignInButton()
@@ -26,6 +34,7 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
+        performSegue(withIdentifier: "mapViewPage", sender: nil)
     }
 
     /*

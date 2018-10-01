@@ -11,9 +11,11 @@ import MapKit
 import CoreLocation
 import Firebase
 import FirebaseDatabase
+import GoogleSignIn
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    @IBOutlet weak var loginTitle: UIButton!
     let locationManager = CLLocationManager()
     var ref: DatabaseReference!
     var refHandle: UInt!
@@ -24,7 +26,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
-        
+        if Auth.auth().currentUser != nil {
+            loginTitle.setTitle("Logout", for: .normal)
+        }
+ 
         self.mapView.delegate = self
         //createAnnotation(locations: annoLocation)
         
@@ -71,6 +76,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         subtitleView.text = annotation.subtitle!
         annotationView.detailCalloutAccessoryView = subtitleView
         return annotationView
+    }
+    
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        if Auth.auth().currentUser != nil {
+            GIDSignIn.sharedInstance().signOut()
+            do {
+                try Auth.auth().signOut()
+                loginTitle.setTitle("Login", for: .normal)
+            }
+            catch {
+                print(error)
+            }
+        } else {
+            performSegue(withIdentifier: "loginPage", sender: nil)
+        }
     }
     
     // function that zooms in to the user's location

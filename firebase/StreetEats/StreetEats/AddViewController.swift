@@ -16,7 +16,6 @@ class AddViewController: UIViewController {
     @IBOutlet weak var typeField: UITextField!
     @IBOutlet weak var latitudeField: UITextField!
     @IBOutlet weak var longitudeField: UITextField!
-    
     let locationManager = CLLocationManager()
     var refFood: DatabaseReference!
     
