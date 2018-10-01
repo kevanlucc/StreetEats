@@ -60,6 +60,10 @@ class AddViewController: UIViewController {
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let newdate = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        let time = formatter.string(from: newdate as Date)
         
         // Add the following data to Firebase Database
         let key = refFood.childByAutoId().key
@@ -74,6 +78,7 @@ class AddViewController: UIViewController {
             "day": components.day as Any,
             "hour": components.hour as Any,
             "minutes": components.minute as Any,
+            "time": time as Any
             ] as [String : Any]
         refFood.child(key!).setValue(food)
     }
