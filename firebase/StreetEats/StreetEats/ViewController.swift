@@ -88,7 +88,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         // if user is logged in
         if Auth.auth().currentUser != nil {
-            GIDSignIn.sharedInstance().signOut()
+          //  GIDSignIn.sharedInstance().signOut()
             do {
                 try Auth.auth().signOut()
                 loginTitle.setTitle("Login", for: .normal)

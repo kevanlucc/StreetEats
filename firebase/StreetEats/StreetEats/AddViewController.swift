@@ -64,7 +64,8 @@ class AddViewController: UIViewController {
             "day": components.day as Any,
             "hour": components.hour as Any,
             "minutes": components.minute as Any,
-            "time": time as Any
+            "time": time as Any,
+            "userId": Auth.auth().currentUser?.uid as! String
             ] as [String : Any]
         refFood.child(key!).setValue(food)
     }
