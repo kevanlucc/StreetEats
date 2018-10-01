@@ -48,16 +48,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
             let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
             let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
-            let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
-            let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
-            
+            //let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
+            //let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
+            let time = (snapshot.value as AnyObject?)!["time"] as! String
             let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
             
             // Draw out marker on map 
             let annotations = MKPointAnnotation()
             annotations.coordinate = locate
             annotations.title = cartName
-            annotations.subtitle = "\(typeFood) \n\(hours) \(minutes)"
+            annotations.subtitle = "Menu: \(typeFood) \nLast seen at \(time)"
             self.mapView.addAnnotation(annotations)
         })
         
