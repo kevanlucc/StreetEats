@@ -14,29 +14,15 @@ class AddViewController: UIViewController {
 
     @IBOutlet weak var nameField: UITextField!
     @IBOutlet weak var typeField: UITextField!
-    @IBOutlet weak var latitudeField: UITextField!
-    @IBOutlet weak var longitudeField: UITextField!
+
     let locationManager = CLLocationManager()
     var refFood: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        latitudeField.isUserInteractionEnabled = false
-        longitudeField.isUserInteractionEnabled = false
 
         // Do any additional setup after loading the view.
         refFood = Database.database().reference().child("Food");
-    }
-    
-    @IBAction func getCurrentCoordinate(_ sender: UIButton) {
-        var currentLocation: CLLocation!
-        currentLocation = locationManager.location
-        let latitude = "\(currentLocation.coordinate.latitude)"
-        let longitude = "\(currentLocation.coordinate.longitude)"
-        
-        latitudeField.text = latitude
-        longitudeField.text = longitude
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -60,6 +46,10 @@ class AddViewController: UIViewController {
         let date = Date()
         let calendar = Calendar.current
         let components = calendar.dateComponents([.year,.month,.day,.hour,.minute,.second], from: date)
+        let newdate = NSDate()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "hh:mm a"
+        let time = formatter.string(from: newdate as Date)
         
         // Add the following data to Firebase Database
         let key = refFood.childByAutoId().key
@@ -74,6 +64,7 @@ class AddViewController: UIViewController {
             "day": components.day as Any,
             "hour": components.hour as Any,
             "minutes": components.minute as Any,
+            "time": time as Any
             ] as [String : Any]
         refFood.child(key!).setValue(food)
     }
@@ -88,6 +79,10 @@ class AddViewController: UIViewController {
         
         myAlert.addAction(okAction);
         self.present(myAlert, animated: true, completion: nil)
+    }
+    @IBAction func HideKeyboard(_ sender: UITapGestureRecognizer) {
+        nameField.resignFirstResponder()
+        typeField.resignFirstResponder()
     }
     
     override func didReceiveMemoryWarning() {

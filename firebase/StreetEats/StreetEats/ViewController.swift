@@ -15,21 +15,28 @@ import GoogleSignIn
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
+    @IBOutlet weak var AddButtonOnLogin: UIButton!
     @IBOutlet weak var loginTitle: UIButton!
+    @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
     var ref: DatabaseReference!
     var refHandle: UInt!
-    @IBOutlet weak var mapView: MKMapView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.userTrackingMode = .follow
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
+        //checks if user is logged in to Firebase
         if Auth.auth().currentUser != nil {
             loginTitle.setTitle("Logout", for: .normal)
+            AddButtonOnLogin.isHidden = false
         }
- 
+        else {
+            AddButtonOnLogin.isHidden = true
+        }
         self.mapView.delegate = self
         //createAnnotation(locations: annoLocation)
         
@@ -48,16 +55,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
             let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
             let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
-            let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
-            let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
-            
+            //let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
+            //let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
+            let time = (snapshot.value as AnyObject?)!["time"] as! String
             let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
             
             // Draw out marker on map 
             let annotations = MKPointAnnotation()
             annotations.coordinate = locate
             annotations.title = cartName
-            annotations.subtitle = "\(typeFood) \n\(hours) \(minutes)"
+            annotations.subtitle = "Menu: \(typeFood) \nLast seen at \(time)"
             self.mapView.addAnnotation(annotations)
         })
         
@@ -79,17 +86,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
+        // if user is logged in
         if Auth.auth().currentUser != nil {
             GIDSignIn.sharedInstance().signOut()
             do {
                 try Auth.auth().signOut()
                 loginTitle.setTitle("Login", for: .normal)
+                AddButtonOnLogin.isHidden = true
             }
             catch {
                 print(error)
             }
         } else {
             performSegue(withIdentifier: "loginPage", sender: nil)
+            
         }
     }
     
