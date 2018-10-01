@@ -10,10 +10,12 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-class LoginViewController: UIViewController, GIDSignInUIDelegate {
+class LoginViewController: UIViewController, GIDSignInUIDelegate, GIDSignInDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        GIDSignIn.sharedInstance().clientID =  FirebaseApp.app()?.options.clientID
+        GIDSignIn.sharedInstance()?.delegate = self
         
         setupGoogleButton()
     }
@@ -34,17 +36,30 @@ class LoginViewController: UIViewController, GIDSignInUIDelegate {
         view.addSubview(googleButton)
         
         GIDSignIn.sharedInstance().uiDelegate = self as GIDSignInUIDelegate
-        performSegue(withIdentifier: "mapViewPage", sender: nil)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func sign(_ _signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let err = error {
+            print("Failed to log into Google: ", err)
+            return
+        }
+        
+        print("Successfully logged into Google: ", user)
+        
+        guard let idToken = user.authentication.idToken else { return }
+        guard let accessToken = user.authentication.accessToken else { return }
+        let credentials = GoogleAuthProvider.credential(withIDToken: idToken, accessToken: accessToken)
+        
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+            if let err = error {
+                print("Failed to create a Firebase User with Google account: ", err)
+                return
+            }
+            
+            guard let uid = user?.uid else { return }
+            print("Sucessfully logged into Firebase with Google", user?.uid)
+            self.performSegue(withIdentifier: "mapViewPage", sender: nil)
+        })
+        
     }
-    */
-
 }
