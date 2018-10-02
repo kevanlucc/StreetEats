@@ -23,10 +23,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var refHandle: UInt!
     var newref: DatabaseReference!
     var items = [String]()
+    var firstRun = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mapView.userTrackingMode = .follow
+        if firstRun == 0 {
+            mapView.userTrackingMode = .follow
+            firstRun = 1
+        }
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -142,6 +146,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     @IBAction func UserLocation(_ sender: UIButton) {
+        sender.setImage(UIImage(named: "gps_label"), for: .normal)
         mapView.userTrackingMode = .follow
     }
     @IBAction func loginButtonTapped(_ sender: UIButton) {
@@ -162,11 +167,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
-    // function that zooms in to the user's location
+    /*function that zooms in to the user's location
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
         let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
-        self.mapView.setRegion(region, animated: true)
-    }
+        self.mapView.setRegion(region, animated: false)
+    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
