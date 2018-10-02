@@ -141,6 +141,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return
     }
     
+    @IBAction func UserLocation(_ sender: UIButton) {
+        mapView.userTrackingMode = .follow
+    }
     @IBAction func loginButtonTapped(_ sender: UIButton) {
         // if user is logged in
         if Auth.auth().currentUser != nil {
