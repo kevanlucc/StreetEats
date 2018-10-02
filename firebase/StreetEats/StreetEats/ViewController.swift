@@ -21,7 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     let locationManager = CLLocationManager()
     var ref: DatabaseReference!
     var refHandle: UInt!
-    
+    var newref: DatabaseReference!
+    var items = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,18 +41,62 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         self.mapView.delegate = self
         //createAnnotation(locations: annoLocation)
         
-        // grabbing data
-        ref = Database.database().reference()
-        // Grabs data from the database hierarchy as a snapshot
+        // Reference Database starting from 'Users' parent
+        ref = Database.database().reference().child("Users")
+        
+        // Grabs all the carts from all the user
         refHandle = ref.observe(.value,
                                 with: { (snapshot) in
-                                    if snapshot.childrenCount == 0 {
-                                        return
+                                    for i in snapshot.children {
+                                        let snap = i as! DataSnapshot
+                                        self.items.append(snap.key)
                                     }
-    })
-        // Referencing data inside the "Food" dictionary
-        ref.child("Food").observe(.childAdded, with: { (snapshot) in
-            let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
+                                    for item in self.items {
+                                        self.ref.child(item).observe(.childAdded, with: { (snapshot) in
+                                            let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
+                                            let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
+                                            let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
+                                            let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
+                                            //let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
+                                            //let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
+                                            let time = (snapshot.value as AnyObject?)!["time"] as! String
+                                            let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
+                                            
+                                            // Draw out marker on map
+                                            let annotations = MKPointAnnotation()
+                                            annotations.coordinate = locate
+                                            annotations.title = cartName
+                                            annotations.subtitle = "Menu: \(typeFood) \nLast seen at \(time)"
+                                            self.mapView.addAnnotation(annotations)
+                                        })
+                                    }
+        })
+        
+        /*
+        ref.child("Users").observe(.value, with: { (snapshot) in
+            ref.child(snapshot).observe(.childAdded, with: { (snapshot) in
+                let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
+                let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
+                let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
+                let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
+                //let hours = (snapshot.value as AnyObject?)!["hour"] as! Int
+                //let minutes = (snapshot.value as AnyObject?)!["minutes"] as! Int
+                let time = (snapshot.value as AnyObject?)!["time"] as! String
+                let locate = CLLocationCoordinate2DMake((Double(latitude)!), (Double(longitude)!))
+                
+                // Draw out marker on map
+                let annotations = MKPointAnnotation()
+                annotations.coordinate = locate
+                annotations.title = cartName
+                annotations.subtitle = "Menu: \(typeFood) \nLast seen at \(time)"
+                self.mapView.addAnnotation(annotations)
+            })}*/
+        
+        /* Retrieve carts tied to the user ID data inside the "Food" dictionary
+        ref.child("Users").observe(.childAdded, with: { (snapshot) in
+            print(snapshot)
+            return
+              let latitude = (snapshot.value as AnyObject?)!["latitude"] as! String
             let longitude = (snapshot.value as AnyObject?)!["longitude"] as! String
             let cartName = (snapshot.value as AnyObject?)!["cartName"] as! String
             let typeFood = (snapshot.value as AnyObject?)!["typeFood"] as! String
@@ -66,14 +111,20 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotations.title = cartName
             annotations.subtitle = "Menu: \(typeFood) \nLast seen at \(time)"
             self.mapView.addAnnotation(annotations)
-        })
-        
+        })*/
     }
+    
+    
+    var deleteButton = UIButton.init(type: .detailDisclosure)
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
+        
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomerAnnotation")
+        deleteButton.setImage(UIImage(named: "delete"), for: .normal)
+        
         annotationView.image = UIImage(named: "cart")
         annotationView.canShowCallout = true
         
@@ -82,7 +133,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         subtitleView.numberOfLines = 0
         subtitleView.text = annotation.subtitle!
         annotationView.detailCalloutAccessoryView = subtitleView
+        annotationView.rightCalloutAccessoryView = deleteButton
         return annotationView
+    }
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        return
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
