@@ -16,13 +16,13 @@ class AddViewController: UIViewController {
     @IBOutlet weak var typeField: UITextField!
 
     let locationManager = CLLocationManager()
-    var refFood: DatabaseReference!
+    var refUsers: DatabaseReference!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        refFood = Database.database().reference().child("Food");
+        refUsers = Database.database().reference().child("Users");
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
@@ -52,7 +52,7 @@ class AddViewController: UIViewController {
         let time = formatter.string(from: newdate as Date)
         
         // Add the following data to Firebase Database
-        let key = refFood.childByAutoId().key
+        let key = Auth.auth().currentUser?.uid
         
         let food = [
             "id": key as Any,
@@ -64,9 +64,10 @@ class AddViewController: UIViewController {
             "day": components.day as Any,
             "hour": components.hour as Any,
             "minutes": components.minute as Any,
-            "time": time as Any
+            "time": time as Any,
+            "userId": Auth.auth().currentUser?.uid as! String
             ] as [String : Any]
-        refFood.child(key!).setValue(food)
+        refUsers.child(key!).childByAutoId().setValue(food)
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
