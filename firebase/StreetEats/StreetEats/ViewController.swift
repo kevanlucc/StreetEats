@@ -173,6 +173,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBAction func UserLocation(_ sender: UIButton) {
         sender.setImage(UIImage(named: "gps@32x"), for: .normal)
+        let userLocation = MKUserLocation()
+        let region = MKCoordinateRegion(center: userLocation.coordinate, span: MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02))
+        self.mapView.setRegion(region, animated: false)
         mapView.userTrackingMode = .follow
     }
     @IBAction func loginButtonTapped(_ sender: UIButton) {
