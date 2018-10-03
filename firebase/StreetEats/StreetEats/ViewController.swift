@@ -13,6 +13,12 @@ import Firebase
 import FirebaseDatabase
 import GoogleSignIn
 
+class deleteButton: UIButton {
+    var cartID: String!
+    var userID: String!
+    var cartAnno: MKAnnotation!
+}
+
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var AddButtonOnLogin: UIButton!
@@ -23,14 +29,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var refHandle: UInt!
     var newref: DatabaseReference!
     var items = [String]()
-    var firstRun = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if firstRun == 0 {
             mapView.userTrackingMode = .follow
-            firstRun = 1
-        }
         
         locationManager.requestAlwaysAuthorization()
         locationManager.requestWhenInUseAuthorization()
@@ -119,7 +121,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     
-    var deleteButton = UIButton.init(type: .detailDisclosure)
+   // var delButton = deleteButton.init(type: .detailDisclosure)
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
@@ -127,8 +129,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "CustomerAnnotation")
-        deleteButton.setImage(UIImage(named: "delete"), for: .normal)
-        
+        let delref: DatabaseReference!
+        let delButton = deleteButton.init(type: .detailDisclosure)
+        delButton.setImage(UIImage(named: "delete"), for: .normal)
         annotationView.image = UIImage(named: "cart")
         annotationView.canShowCallout = true
         
@@ -136,9 +139,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         subtitleView.font = subtitleView.font.withSize(12)
         subtitleView.numberOfLines = 0
         subtitleView.text = annotation.subtitle!
+        delButton.cartAnno = annotation
+        delButton.cartID = annotation.title as! String
         annotationView.detailCalloutAccessoryView = subtitleView
-        annotationView.rightCalloutAccessoryView = deleteButton
+        
+        if Auth.auth().currentUser?.uid != nil {
+            let currentUserID = Auth.auth().currentUser!.uid
+            delref = Database.database().reference().child("Users").child((currentUserID))
+            delref.child(delButton.cartID).observe(.value, with: { (snap) in
+                if (snap.childrenCount > 0) {
+                    let userID = (snap.value as AnyObject?)!["userId"] as! String
+                    if userID == currentUserID {
+                        annotationView.rightCalloutAccessoryView = delButton
+                        delButton.addTarget(self, action: #selector(self.handleDelete(_:)), for: .touchUpInside)
+                    }
+                }
+            })
+        }
         return annotationView
+    }
+    
+    @objc func handleDelete(_ sender: deleteButton!) {
+        let delref: DatabaseReference!
+        let currentUserID = Auth.auth().currentUser!.uid
+        self.mapView.removeAnnotation(sender.cartAnno)
+        delref = Database.database().reference().child("Users").child((currentUserID))
+        delref.child(sender.cartID).removeValue()
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {

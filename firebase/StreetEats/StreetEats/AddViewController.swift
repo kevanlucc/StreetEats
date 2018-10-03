@@ -55,7 +55,7 @@ class AddViewController: UIViewController {
         let key = Auth.auth().currentUser?.uid
         
         let food = [
-            "id": key as Any,
+            "id": refUsers.child(key!).childByAutoId().key as Any,
             "cartName": cartName as Any,
             "typeFood": typeFood as Any,
             "latitude": latitude,
@@ -67,7 +67,7 @@ class AddViewController: UIViewController {
             "time": time as Any,
             "userId": Auth.auth().currentUser?.uid as! String
             ] as [String : Any]
-        refUsers.child(key!).childByAutoId().setValue(food)
+        refUsers.child(key!).child(cartName!).setValue(food)
     }
     
     @IBAction func cancelButtonTapped(_ sender: UIButton) {
