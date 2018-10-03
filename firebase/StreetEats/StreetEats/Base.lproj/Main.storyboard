@@ -38,9 +38,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cdd-Gj-BPT">
-                                <rect key="frame" x="310" y="583" width="40" height="40"/>
+                                <rect key="frame" x="314" y="587" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="gps_label"/>
+                                <state key="normal" image="gps@32x"/>
                                 <connections>
                                     <action selector="UserLocation:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Es3-sQ-TTH"/>
                                 </connections>
@@ -61,6 +61,14 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVx-Am-mRX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kCp-13-ss5">
+                                <rect key="frame" x="28" y="159" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Info"/>
+                                <connections>
+                                    <segue destination="J5g-on-6Rd" kind="presentation" id="mZ2-6I-cUc"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -172,6 +180,44 @@
             </objects>
             <point key="canvasLocation" x="900" y="132.68365817091455"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="bBQ-EQ-bRK">
+            <objects>
+                <viewController id="J5g-on-6Rd" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ioV-MM-BCb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Atl-VO-Pnw">
+                                <rect key="frame" x="57" y="238" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo2x" translatesAutoresizingMaskIntoConstraints="NO" id="FII-6M-47w">
+                                <rect key="frame" x="67" y="32" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-Yx-6tH">
+                                <rect key="frame" x="16" y="76" width="48" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="cancelButtonTapped:" destination="qdn-tX-guE" eventType="touchUpInside" id="xsS-iu-PhA"/>
+                                    <segue destination="BYZ-38-t0r" kind="presentation" id="NAt-Ns-Ga6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HAi-l4-Oje"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Sh-3q-2af" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="849"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="yav-vy-gIE">
             <objects>
@@ -210,9 +256,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="gps_label" width="40" height="40"/>
+        <image name="gps@32x" width="32" height="32"/>
+        <image name="logo2x" width="871" height="411"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="0Q2-Jz-2xv"/>
+        <segue reference="NAt-Ns-Ga6"/>
     </inferredMetricsTieBreakers>
 </document>

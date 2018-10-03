@@ -18,6 +18,9 @@
 		76861F01215C515900EAB59B /* StreetEatsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76861F00215C515900EAB59B /* StreetEatsTests.swift */; };
 		A5778B81215ECD18000566EF /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A5778B80215ECD18000566EF /* GoogleService-Info.plist */; };
 		A5931D4121604BD90023C532 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5931D4021604BD90023C532 /* LoginViewController.swift */; };
+		C97BC36C216467240093ED04 /* Comfortaa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C97BC369216467240093ED04 /* Comfortaa-Light.ttf */; };
+		C97BC36D216467240093ED04 /* Comfortaa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C97BC36A216467240093ED04 /* Comfortaa-Regular.ttf */; };
+		C97BC36E216467240093ED04 /* Comfortaa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C97BC36B216467240093ED04 /* Comfortaa-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		A5778B80215ECD18000566EF /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A5931D4021604BD90023C532 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		BF840A96904ED8A10D87A975 /* Pods-StreetEatsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEatsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEatsTests/Pods-StreetEatsTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C97BC369216467240093ED04 /* Comfortaa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Light.ttf"; sourceTree = "<group>"; };
+		C97BC36A216467240093ED04 /* Comfortaa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Regular.ttf"; sourceTree = "<group>"; };
+		C97BC36B216467240093ED04 /* Comfortaa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Comfortaa-Bold.ttf"; sourceTree = "<group>"; };
 		EA955B9AFAFBE09DD3AC5EBA /* Pods-StreetEats.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StreetEats.release.xcconfig"; path = "Pods/Target Support Files/Pods-StreetEats/Pods-StreetEats.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +107,7 @@
 				A5931D4021604BD90023C532 /* LoginViewController.swift */,
 				76861EEF215C515800EAB59B /* Main.storyboard */,
 				76861EF2215C515900EAB59B /* Assets.xcassets */,
+				C97BC368216467240093ED04 /* fonts */,
 				76861EF4215C515900EAB59B /* LaunchScreen.storyboard */,
 				A5778B80215ECD18000566EF /* GoogleService-Info.plist */,
 				76861EF7215C515900EAB59B /* Info.plist */,
@@ -115,6 +122,17 @@
 				76861F02215C515900EAB59B /* Info.plist */,
 			);
 			path = StreetEatsTests;
+			sourceTree = "<group>";
+		};
+		C97BC368216467240093ED04 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C97BC369216467240093ED04 /* Comfortaa-Light.ttf */,
+				C97BC36A216467240093ED04 /* Comfortaa-Regular.ttf */,
+				C97BC36B216467240093ED04 /* Comfortaa-Bold.ttf */,
+			);
+			name = fonts;
+			path = ../../../../../Downloads/fonts;
 			sourceTree = "<group>";
 		};
 		D872BCD97FAB6B7CFBE76644 /* Frameworks */ = {
@@ -226,6 +244,9 @@
 				A5778B81215ECD18000566EF /* GoogleService-Info.plist in Resources */,
 				76861EF3215C515900EAB59B /* Assets.xcassets in Resources */,
 				76861EF1215C515800EAB59B /* Main.storyboard in Resources */,
+				C97BC36D216467240093ED04 /* Comfortaa-Regular.ttf in Resources */,
+				C97BC36C216467240093ED04 /* Comfortaa-Light.ttf in Resources */,
+				C97BC36E216467240093ED04 /* Comfortaa-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
