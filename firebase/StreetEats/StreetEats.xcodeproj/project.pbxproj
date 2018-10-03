@@ -131,8 +131,7 @@
 				C97BC36A216467240093ED04 /* Comfortaa-Regular.ttf */,
 				C97BC36B216467240093ED04 /* Comfortaa-Bold.ttf */,
 			);
-			name = fonts;
-			path = ../../../../../Downloads/fonts;
+			path = fonts;
 			sourceTree = "<group>";
 		};
 		D872BCD97FAB6B7CFBE76644 /* Frameworks */ = {
