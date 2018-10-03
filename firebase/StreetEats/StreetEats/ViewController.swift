@@ -146,7 +146,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     @IBAction func UserLocation(_ sender: UIButton) {
-        sender.setImage(UIImage(named: "gps_label"), for: .normal)
+        sender.setImage(UIImage(named: "gps@32x"), for: .normal)
         mapView.userTrackingMode = .follow
     }
     @IBAction func loginButtonTapped(_ sender: UIButton) {
