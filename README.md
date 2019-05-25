@@ -1,1 +1,1 @@
-<img src="https://postimg.cc/QBFC4k9K" height=auto />
+<img src="https://i.postimg.cc/BvgFvmJp/logo-1x.jpg"/>
