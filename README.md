@@ -15,7 +15,7 @@ Check out example videos here down below. If you'd like to test the app out drop
  * [Normal User Experience](https://youtu.be/dHWVvyYUqU4)
  * [ Login User Experience](https://youtu.be/2r-andudDsU)
 
-Checkout a presentation done in fron of [mentors and potential investors!](https://www.youtube.com/watch?v=HLNmjZFmp04&list=PLlLHfkTcnvmO1hrfh9x4N8i6qgbv7zSmQ&index=5&t=0s)
+Checkout a presentation done in front of [mentors and potential investors!](https://www.youtube.com/watch?v=HLNmjZFmp04&list=PLlLHfkTcnvmO1hrfh9x4N8i6qgbv7zSmQ&index=5&t=0s)
 
 Technology used:
 - Swift
